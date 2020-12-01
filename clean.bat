@@ -1,0 +1,13 @@
+@echo off
+del *.aux
+del *.bbl
+del *.tmp
+del *.log
+del *.blg
+del *.bak
+del *.bbl
+del thesis.toc
+del thesis.lof
+del thesis.lot
+del thesis.out
+del thesis.pdf
