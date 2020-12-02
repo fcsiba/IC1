@@ -1,0 +1,198 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[table,svgnames]{xcolor}   %for providing colors to table
+\usepackage{caption, subcaption} % to display figure/subfigure and table/subtable titles
+\usepackage{graphics}
+\usepackage{amsmath,amssymb,amsthm}      % AMS Math
+\usepackage{fancyhdr}                    % Fancy Header and Footer
+\usepackage{colortbl}
+%--------------WA-------------REFERENCING-------------------
+\usepackage[utf8]{inputenc}
+\usepackage[american]{babel}
+\usepackage[autostyle]{csquotes}
+
+\usepackage[authordate-trad,backend=biber,autolang=none,booklongxref=false, bibencoding=latin1,postnotepunct,compresspages,strict]{biblatex-chicago}
+
+%\usepackage[colorlinks,urlcolor=blue,citecolor=black, plainpages=false,breaklinks=true]{hyperref}
+
+%--------------------------------------------------
+
+
+\usepackage{textcomp}
+
+\hyphenation{hy-phe-na-tion}
+\usepackage[Lenny]{./styles/fncychap}
+
+\usepackage{enumerate}
+\usepackage{enumitem} % to customize the symbols to enumerate
+\usepackage{tabularx} % for use of itemize inside tables
+\usepackage{xltabular} % for combining longtable & tabularx
+\usepackage{multirow}
+\usepackage{array}
+
+% \usepackage{float, mathtools} %WA: subfigure removed since gone obsolete
+
+\usepackage{txfonts}
+\usepackage{latexsym}
+
+%--------additional packages used by WA-------------------
+%tikz package for graphics used for drawing markov chains
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{automata, positioning, decorations.pathmorphing}
+\usetikzlibrary{calc}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+% some other packages that I need
+\usepackage{leftidx} %arydshln,
+% \usepackage{mathtools}
+
+
+\usepackage{longtable} % to display tables across several pages
+\usepackage{booktabs} % For prettier tables
+\usepackage{easybmat} %for formating/lines in matrices
+
+\usepackage{mVersion} %Provides version with build number.
+\usepackage[showseconds=false]{datetime2} %provides date time formats
+
+%\usepackage[latin1]{inputenc}
+
+%----E--N--D------------------------
+
+
+\usepackage[section]{placeins}
+\long\def\/*#1*/{}
+
+% \usepackage[skip=1ex]{caption}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Layout definition for Hisham's thesis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[
+paperheight=240mm,
+paperwidth=167mm,
+textheight=192mm,
+textwidth=120mm,
+top=25mm,
+left=23mm,
+headsep=8mm
+]{geometry}
+
+% move from center
+%\addtolength{\oddsidemargin}{0.5cm}
+%\addtolength{\evensidemargin}{-0.5cm}
+
+%\linespread{3.0} % to allow for nicer line distance
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Heading commands for Hisham's thesis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% define the headings %%%
+\pagestyle{fancy}
+\fancyhf{}                              % delete current setting for header and footer
+\renewcommand{\chaptermark}[1]{         % Lower Case Chapter marker style
+  \markboth{\chaptername\ \thechapter.\ #1}{}} %
+\renewcommand{\sectionmark}[1]{         % Lower case Section marker style
+  \markright{\thesection.\ #1}}
+\fancyhead[LE,RO]{\bfseries\thepage}    % Page number (boldface) in left on even
+%\fancyhead[LO]{\nouppercase{\slshape \rightmark}}
+%\fancyhead[RE]{\nouppercase{\slshape \leftmark}}
+\fancyhead[LO]{\bfseries\nouppercase{\rightmark}}
+\fancyhead[RE]{\bfseries\nouppercase{\leftmark}}
+%---------WA: for version /date in footer-----------
+\fancyfoot[R]{v-\version}
+\renewcommand{\footrulewidth}{0.4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cropmark definitions for printing size in B5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[a4,center,noinfo]{crop}
+
+\newcommand*\crosshairsulc{% % crosshairs
+\begin{picture}(0,0)
+\linethickness{0.2pt}
+\put(-35,0){\line(1,0){30}}
+\put(0,35){\line(0,-1){30}}
+\end{picture}%
+}
+
+\newcommand*\crosshairsurc{% % crosshairs
+\linethickness{0.2pt}
+\begin{picture}(0,0)
+\put(35,0){\line(-1,0){30}}
+\put(0,35){\line(0,-1){30}}
+\end{picture}%
+}
+\newcommand*\crosshairsllc{% % crosshairs
+\linethickness{0.2pt}
+\begin{picture}(0,0)
+\put(-35,0){\line(1,0){30}}
+\put(0,-35){\line(0,1){30}}
+\end{picture}%
+}
+\newcommand*\crosshairslrc{% % crosshairs
+\linethickness{0.2pt}
+\begin{picture}(0,0)
+\put(35,0){\line(-1,0){30}}
+\put(0,-35){\line(0,1){30}}
+\end{picture}%
+}
+
+\cropdef\crosshairsulc\crosshairsurc\crosshairsllc\crosshairslrc{crosshairs}
+
+% cropmarks for printing
+\crop[crosshairs]
+%\crop[frame]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  HyperReference
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \RequirePackage[dvips,ps2pdf,pdfpagelabels,plainpages=false]{hyperref}
+\RequirePackage[pdfpagelabels,plainpages=false]{hyperref}
+% \RequirePackage{hyperref}
+\RequirePackage{colortbl}
+\hypersetup{colorlinks=false,
+            breaklinks=true,
+            citecolor=black,
+            urlcolor=black,
+            linkcolor=black,
+            menucolor=darkblue,
+            anchorcolor=red,
+            pagecolor=cyan,
+            }
+
+\usepackage{./styles/breakurl}
+\urlstyle{same}
+
+% \newcommand{\vectgreek}[1]{\boldsymbol{#1}} %define matrix/vector notation in case of Greek letterFs for Computer Modern (standard LaTeX font)
+% \newcommand{\clearemptydoublepage}{\newpage{\pagestyle{empty}\cleardoublepage}}
+
+% Code for creating empty pages
+% No headers on empty pages before new chapter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% to rename bibliopage as references
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\bibname}{References}
+
+\makeatletter
+% ----- WA: Code to get latex ignore utf8 errors and replace it with "?" for removal  later..
+\def\UTFviii@defined#1{%
+  \ifx#1\relax
+      ?%
+  \else\expandafter
+    #1%
+  \fi
+}
+%------E-N-D----------------------
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+    \hbox{}
+    \thispagestyle{plain}
+    \newpage
+    \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother \clearpage{\pagestyle{plain}\cleardoublepage} 
